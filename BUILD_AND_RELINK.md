@@ -105,7 +105,7 @@ BUILD_DIR="$(find "$MODULE/.cxx/RelWithDebInfo" -mindepth 2 -maxdepth 2 -type d 
 cmake --build "$BUILD_DIR" --target ffmpegJNI --clean-first
 ```
 
-**Important verification boundary:** The original Nebula build has been successfully *relinked without modifications* for all four ABIs. That verifies the stored build environment, **not** a complete independent end-user replacement test with a modified FFmpeg component or installation of a rebuilt/signed APK. Those extra tests and any required matching build/configuration artifacts must still be completed before claiming full LGPL compliance. Android app signing and redistribution are separate constraints.
+**Modified FFmpeg relinking verification (November 9, 2026):** Modified FFmpeg source was successfully rebuilt and relinked for all four Android ABIs. A separate Nebula test APK was installed on a Google Pixel 6a and successfully played E-AC-3 audio. Android Logcat confirmed execution of the modified FFmpeg function through `NEBULA_DECODER_REQUEST=eac3` and `NEBULA_RELINK_TEST_20261108`. Full evidence is documented in [RELINK_VERIFICATION.md](RELINK_VERIFICATION.md). Independent reproduction using only public materials and complete LGPL compliance remain subject to separate verification.
 
 ## Distribution notice and remaining checks
 
